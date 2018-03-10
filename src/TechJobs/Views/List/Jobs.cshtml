@@ -5,3 +5,17 @@
 @{ 
     // TODO #3 - Use the same list display from Views/Search/Index.cshtml 
 }
+
+<table>
+    @foreach (Dictionary<string, string> jobs in ViewBag.jobs)
+    {
+
+        <tr class="job-listing">
+
+            @foreach (KeyValuePair<string, string> job in jobs)
+            {
+                <td><a asp-controller="Search" asp-action="Results" asp-route-value="@job.Key">@job.Value </a></td>
+            }
+        </tr>
+    }
+</table>
